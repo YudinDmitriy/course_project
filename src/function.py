@@ -18,3 +18,25 @@ def completed_operation(operation):
         else:
             continue
     return new_operation
+
+
+def sort_data(operation):
+    sort_data = sorted(operation, key=lambda x: datetime.strptime(x['date'], '%Y-%m-%dT%H:%M:%S.%f'), reverse=True)
+    last_operation = sort_data[:5]
+    return last_operation
+
+def hide_cart_number(cart_number):
+    '''
+
+    :param cart_number: 9171987821259925
+    :return: ('9171', '98**', '****', '9925')
+    '''
+    index = len(str(cart_number)) // 4
+    index2 = index * 2
+    index3 = index * 3
+    first_part = str(cart_number)[:index]
+    second_part = str(cart_number)[index:index2]
+    second_part_hide = second_part[0:2] + '**'
+    third_part = '****' #str(cart_number)[index2:index3]
+    fourth_part = str(cart_number)[index3:]
+    return first_part, second_part_hide, third_part, fourth_part
