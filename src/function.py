@@ -21,6 +21,7 @@ def completed_operation(operation):
 
 
 def sort_data(operation):
+    """ сортировка файла по дате """
     sort_data = sorted(operation, key=lambda x: datetime.strptime(x['date'], '%Y-%m-%dT%H:%M:%S.%f'), reverse=True)
     last_operation = sort_data[:5]
     return last_operation
@@ -28,7 +29,7 @@ def sort_data(operation):
 def hide_cart_number(cart_number):
     '''
 
-    :param cart_number: 9171987821259925
+    :param cart_number: Maestro 9171987821259925
     :return: 9171 98** **** 9925
     '''
     a = cart_number.split()
@@ -47,7 +48,7 @@ def hide_cart_number(cart_number):
 def hide_account_number(account_number):
     '''
 
-    :param account_number: 97848259954268659635
+    :param account_number: Счет 97848259954268659635
     :return: **9635
     '''
     a = account_number.split()
