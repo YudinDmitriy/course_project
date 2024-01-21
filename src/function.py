@@ -31,15 +31,16 @@ def hide_cart_number(cart_number):
     :param cart_number: 9171987821259925
     :return: 9171 98** **** 9925
     '''
-    index = len(str(cart_number)) // 4
+    a = cart_number.split()
+    index = len(str(a[-1])) // 4
     index2 = index * 2
     index3 = index * 3
-    first_part = str(cart_number)[:index]
-    second_part = str(cart_number)[index:index2]
+    first_part = str(a[-1])[:index]
+    second_part = str(a[-1])[index:index2]
     second_part_hide = second_part[0:2] + '**'
     third_part = '****'
-    fourth_part = str(cart_number)[index3:]
-    fin_number = str(first_part) + " " + str(second_part_hide) + " " + third_part + " " + fourth_part
+    fourth_part = str(a[-1])[index3:]
+    fin_number = first_part + " " + second_part_hide + " " + third_part + " " + fourth_part
     return fin_number
 
 
@@ -49,7 +50,14 @@ def hide_account_number(account_number):
     :param account_number: 97848259954268659635
     :return: **9635
     '''
-    fin_number = "**" + str(account_number)[-4:]
+    a = account_number.split()
+    fin_number = "**" + str(a[1])[-4:]
     return fin_number
+
+
+def date_format(date):
+    in_data = datetime.strptime(date, '%Y-%m-%dT%H:%M:%S.%f')
+    format_date = f"{in_data:%d.%m.%Y}"
+    return format_date
 
 
