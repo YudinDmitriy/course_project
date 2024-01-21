@@ -29,7 +29,7 @@ def hide_cart_number(cart_number):
     '''
 
     :param cart_number: 9171987821259925
-    :return: ('9171', '98**', '****', '9925')
+    :return: 9171 98** **** 9925
     '''
     index = len(str(cart_number)) // 4
     index2 = index * 2
@@ -37,6 +37,19 @@ def hide_cart_number(cart_number):
     first_part = str(cart_number)[:index]
     second_part = str(cart_number)[index:index2]
     second_part_hide = second_part[0:2] + '**'
-    third_part = '****' #str(cart_number)[index2:index3]
+    third_part = '****'
     fourth_part = str(cart_number)[index3:]
-    return first_part, second_part_hide, third_part, fourth_part
+    fin_number = str(first_part) + " " + str(second_part_hide) + " " + third_part + " " + fourth_part
+    return fin_number
+
+
+def hide_account_number(account_number):
+    '''
+
+    :param account_number: 97848259954268659635
+    :return: **9635
+    '''
+    fin_number = "**" + str(account_number)[-4:]
+    return fin_number
+
+
